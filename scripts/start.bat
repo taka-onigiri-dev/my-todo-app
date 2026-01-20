@@ -1,10 +1,13 @@
 @echo off
+chcp 65001 >nul
+cd /d "%~dp0.."
+
 echo === My ToDo App ===
 echo.
 
 if not exist node_modules (
     echo Installing dependencies...
-    call npm install
+    call npm install --legacy-peer-deps
     echo.
 )
 
