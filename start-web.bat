@@ -10,3 +10,5 @@ if not exist node_modules (
 
 echo Starting Expo for Web...
 npx expo start --web
+
+pause

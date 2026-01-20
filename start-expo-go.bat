@@ -10,9 +10,6 @@ if not exist node_modules (
 
 echo Starting Expo for Expo Go...
 echo.
-echo Options:
-echo   --tunnel : Use tunnel mode (for network restrictions)
-echo.
 
 if "%1"=="--tunnel" (
     echo Starting with tunnel mode...
@@ -20,3 +17,5 @@ if "%1"=="--tunnel" (
 ) else (
     npx expo start
 )
+
+pause
