@@ -97,6 +97,7 @@ my-todo-app/
 ├── src/
 │   └── storage/
 │       └── todoStorage.ts  # AsyncStorage 永続化
+├── scripts/                # 起動スクリプト（Windows用 .bat など）
 ├── assets/                 # 画像アセット
 ├── CLAUDE.md               # このファイル（Claude用ガイドライン）
 ├── README.md               # 設計書兼実装仕様書

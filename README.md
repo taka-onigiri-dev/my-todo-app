@@ -77,16 +77,17 @@ my-todo-app/
 ├── src/
 │   └── storage/
 │       └── todoStorage.ts  # AsyncStorage 操作（load/save/create）
+├── scripts/                # 起動スクリプト
+│   ├── start.bat           # Windows 起動（Expo Go）
+│   ├── start-expo-go.bat   # Windows 起動（Expo Go、--tunnel 対応）
+│   └── start-web.bat       # Windows 起動（Web）
 ├── assets/                 # アイコン・スプラッシュ画像
 ├── CLAUDE.md               # Claude 用ガイドライン
 ├── README.md               # この設計書
 ├── package.json            # 依存関係
 ├── tsconfig.json           # TypeScript 設定
 ├── babel.config.js         # Babel 設定
-├── app.json                # Expo 設定
-├── start.bat               # Windows 起動（Expo Go）
-├── start-expo-go.bat       # Windows 起動（Expo Go、--tunnel 対応）
-└── start-web.bat           # Windows 起動（Web）
+└── app.json                # Expo 設定
 ```
 
 ### 各ファイルの責務
@@ -200,8 +201,8 @@ npx expo start
 
 ### Windows ワンクリック起動
 
-- `start.bat` ダブルクリック → Expo Go 用に起動
-- `start-web.bat` ダブルクリック → Web ブラウザで起動
+- `scripts/start.bat` ダブルクリック → Expo Go 用に起動
+- `scripts/start-web.bat` ダブルクリック → Web ブラウザで起動
 
 ### Expo Go で確認
 
