@@ -80,6 +80,7 @@ my-todo-app/
 ├── scripts/                # スクリプト
 │   ├── setup.bat           # Windows セットアップ
 │   ├── setup.sh            # Mac/Linux セットアップ
+│   ├── update.bat          # Windows 更新（git pull + npm install）
 │   ├── start.bat           # Windows 起動（Expo Go）
 │   ├── start-expo-go.bat   # Windows 起動（Expo Go、--tunnel 対応）
 │   └── start-web.bat       # Windows 起動（Web）
@@ -215,6 +216,7 @@ npx expo start
 ### Windows ワンクリック起動
 
 - `scripts/setup.bat` ダブルクリック → 初回セットアップ
+- `scripts/update.bat` ダブルクリック → 最新コード取得 + 依存関係更新
 - `scripts/start.bat` ダブルクリック → Expo Go 用に起動
 - `scripts/start-web.bat` ダブルクリック → Web ブラウザで起動
 
