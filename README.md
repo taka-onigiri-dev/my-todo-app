@@ -77,7 +77,9 @@ my-todo-app/
 ├── src/
 │   └── storage/
 │       └── todoStorage.ts  # AsyncStorage 操作（load/save/create）
-├── scripts/                # 起動スクリプト
+├── scripts/                # スクリプト
+│   ├── setup.bat           # Windows セットアップ
+│   ├── setup.sh            # Mac/Linux セットアップ
 │   ├── start.bat           # Windows 起動（Expo Go）
 │   ├── start-expo-go.bat   # Windows 起動（Expo Go、--tunnel 対応）
 │   └── start-web.bat       # Windows 起動（Web）
@@ -199,15 +201,27 @@ npm install --legacy-peer-deps
 npx expo start
 ```
 
+### npm スクリプト
+
+| コマンド | 説明 |
+|---------|------|
+| `npm start` | Expo Go で起動 |
+| `npm run web` | Web ブラウザで起動 |
+| `npm run tunnel` | トンネルモードで起動（別ネットワーク対応） |
+| `npm run typecheck` | TypeScript 型チェック |
+| `npm run clean` | キャッシュをクリアして起動 |
+| `npm run reinstall` | node_modules を削除して再インストール |
+
 ### Windows ワンクリック起動
 
+- `scripts/setup.bat` ダブルクリック → 初回セットアップ
 - `scripts/start.bat` ダブルクリック → Expo Go 用に起動
 - `scripts/start-web.bat` ダブルクリック → Web ブラウザで起動
 
 ### Expo Go で確認
 
 1. PC と iPhone を同じ Wi-Fi に接続
-2. `start.bat` 実行で QR コード表示
+2. `npm start` または `scripts/start.bat` で QR コード表示
 3. iPhone カメラで QR を読み取り
 
 ## 既知の問題・注意点
