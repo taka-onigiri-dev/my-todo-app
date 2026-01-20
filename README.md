@@ -80,10 +80,9 @@ my-todo-app/
 ├── scripts/                # スクリプト
 │   ├── setup.bat           # Windows セットアップ
 │   ├── setup.sh            # Mac/Linux セットアップ
-│   ├── update.bat          # Windows 更新（git pull + npm install）
-│   ├── start.bat           # Windows 起動（Expo Go）
-│   ├── start-expo-go.bat   # Windows 起動（Expo Go、--tunnel 対応）
-│   └── start-web.bat       # Windows 起動（Web）
+│   ├── start.bat           # Windows 起動（自動更新 + Expo Go）
+│   ├── start-expo-go.bat   # Windows 起動（--tunnel 対応）
+│   └── start-web.bat       # Windows 起動（自動更新 + Web）
 ├── assets/                 # アイコン・スプラッシュ画像
 ├── CLAUDE.md               # Claude 用ガイドライン
 ├── README.md               # この設計書
@@ -215,10 +214,9 @@ npx expo start
 
 ### Windows ワンクリック起動
 
-- `scripts/setup.bat` ダブルクリック → 初回セットアップ
-- `scripts/update.bat` ダブルクリック → 最新コード取得 + 依存関係更新
-- `scripts/start.bat` ダブルクリック → Expo Go 用に起動
-- `scripts/start-web.bat` ダブルクリック → Web ブラウザで起動
+- `scripts/setup.bat` → 初回セットアップ
+- `scripts/start.bat` → 自動更新して Expo Go 起動
+- `scripts/start-web.bat` → 自動更新して Web 起動
 
 ### Expo Go で確認
 
