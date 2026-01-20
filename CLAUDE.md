@@ -142,3 +142,93 @@ my-todo-app/
 - README.md だけ読んで、同じアプリを作れるか？
 - 必要な情報が欠けていないか？
 - 曖昧な記述がないか？
+
+---
+
+## 過去の失敗・教訓（2026-01 初回構築時）
+
+### 1. Windows バッチファイルが動かない
+
+**症状**: `start.bat` をダブルクリックしても何も起きない
+
+**原因**:
+- Linux 環境で作成したため改行コードが LF（Unix）になっていた
+- `pause` がないのでエラーが見えずにウィンドウが閉じた
+
+**解決策**:
+- 改行コードを CRLF（Windows）に変換: `sed -i 's/$/\r/' *.bat`
+- 末尾に `pause` を追加してエラーを確認できるようにする
+
+**教訓**: Windows 用 .bat は必ず CRLF + pause 付きで作成
+
+---
+
+### 2. `expo-asset` が見つからないエラー
+
+**症状**:
+```
+Error: The required package `expo-asset` cannot be found
+```
+
+**原因**: Expo の必須パッケージを package.json に含めていなかった
+
+**解決策**: 以下のパッケージを追加
+- `expo-asset`
+- `expo-constants`
+- `expo-font`
+- `expo-linking`
+- etc.
+
+**教訓**: Expo プロジェクトは `npx create-expo-app` で作るか、必要な依存関係を確認してから手動構築
+
+---
+
+### 3. Expo Go のバージョン不一致
+
+**症状**:
+```
+Project is incompatible with this version of Expo Go
+The installed version of Expo Go is for SDK 54.0.0
+The project you opened uses SDK 52
+```
+
+**原因**: 最初に SDK 52 で作成したが、ユーザーの Expo Go アプリは SDK 54 だった
+
+**解決策**: package.json を SDK 54 対応バージョンに更新
+- `expo: ~54.0.0`
+- 各パッケージも SDK 54 互換バージョンに
+
+**教訓**:
+- Expo Go は最新 SDK のみサポート
+- プロジェクト開始時に Expo Go のバージョンを確認する
+- または最初から最新 SDK を使う
+
+---
+
+### 4. npm install で peer dependency エラー
+
+**症状**:
+```
+npm error ERESOLVE unable to resolve dependency tree
+```
+
+**原因**: パッケージ間の peer dependency 競合
+
+**解決策**: `npm install --legacy-peer-deps` を使用
+
+**教訓**: Expo プロジェクトでは `--legacy-peer-deps` が必要になることが多い
+
+---
+
+### 5. TypeScript コンパイルエラー
+
+**症状**:
+```
+error TS6046: Argument for '--module' option must be: ...
+```
+
+**原因**: TypeScript バージョンが古く、Expo の tsconfig.base が要求する機能に対応していなかった
+
+**解決策**: TypeScript を ~5.7.0 にアップグレード
+
+**教訓**: Expo SDK アップグレード時は TypeScript バージョンも確認
